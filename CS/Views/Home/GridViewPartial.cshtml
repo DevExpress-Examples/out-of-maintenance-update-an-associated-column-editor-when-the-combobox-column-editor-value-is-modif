@@ -1,0 +1,38 @@
+@Html.DevExpress().GridView(settings => {
+    settings.Name = "GridView";
+    settings.KeyFieldName = "ProductID";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "GridViewPartial" };
+    settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Home", Action = "GridViewUpdatePartial" };
+    
+    settings.CommandColumn.Visible = true;
+    settings.CommandColumn.ShowEditButton = true;
+    
+    settings.Columns.Add(column => {
+        column.FieldName = "ProductID";
+        column.ReadOnly = true;
+        column.EditFormSettings.Visible = DefaultBoolean.False;
+    });
+
+    settings.Columns.Add(column => {
+        column.FieldName = "CategoryID";
+        column.ColumnType = MVCxGridViewColumnType.ComboBox;
+        var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+        comboBoxProperties.DataSource = NorthwindDataProvider.GetCategories();
+        comboBoxProperties.TextField = "CategoryName";
+        comboBoxProperties.ValueField = "CategoryID";
+        comboBoxProperties.ValueType = typeof(int);
+        comboBoxProperties.ClientSideEvents.SelectedIndexChanged = "OnSelectedIndexChanged";
+        if (Convert.ToBoolean(ViewData["hiddenColumnScenario"])) {
+            comboBoxProperties.TextFormatString = "{0}";
+            comboBoxProperties.Columns.Add("CategoryName");
+            comboBoxProperties.Columns.Add("Description").Visible = false;
+        }
+    });
+
+    settings.Columns.Add("ProductName");
+    settings.Columns.Add("UnitPrice");
+    settings.Columns.Add("UnitsOnOrder");
+
+    settings.ClientSideEvents.BeginCallback = "function(s, e) { e.customArgs['hiddenColumnScenario'] = '" + ViewData["hiddenColumnScenario"] + "'; }";
+
+}).Bind(NorthwindDataProvider.GetProducts()).GetHtml()
