@@ -1,3 +1,16 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [HomeController.cs](./CS/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/Controllers/HomeController.vb))
+* [Category.cs](./CS/Models/Category.cs) (VB: [Category.vb](./VB/Models/Category.vb))
+* [NorthwindDataProvider.cs](./CS/Models/NorthwindDataProvider.cs) (VB: [NorthwindDataProvider.vb](./VB/Models/NorthwindDataProvider.vb))
+* [Product.cs](./CS/Models/Product.cs) (VB: [Product.vb](./VB/Models/Product.vb))
+* [GridViewPartial.cshtml](./CS/Views/Home/GridViewPartial.cshtml)
+* [HiddenColumn.cshtml](./CS/Views/Home/HiddenColumn.cshtml)
+* [Index.cshtml](./CS/Views/Home/Index.cshtml)
+* [ServerSideCalculation.cshtml](./CS/Views/Home/ServerSideCalculation.cshtml)
+* **[SimplestApproach.cshtml](./CS/Views/Home/SimplestApproach.cshtml)**
+<!-- default file list end -->
 # Update an associated column editor when the ComboBox column editor value is modified
 
 
