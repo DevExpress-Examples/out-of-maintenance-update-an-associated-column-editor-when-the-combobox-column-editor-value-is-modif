@@ -13,7 +13,7 @@
 <!-- default file list end -->
 # Update an associated column editor when the ComboBox column editor value is modified
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t360468)**
+**[[Run Online]](https://codecentral.devexpress.com/t360468/)**
 <!-- run online end -->
 
 
